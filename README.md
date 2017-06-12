@@ -88,7 +88,7 @@ Count the vowels and consonants in text:
     
     43 consonants and 15 vowels.
 
-Iterate through every nth letter:
+Iterate through every 2nd letter:
 
     let words = "Pack my box with five dozen liquor jugs"
     for letter in words.stepBy(2):
@@ -98,7 +98,7 @@ Iterate through every nth letter:
     
     Pc ybxwt iedznlqo us
 
-Iterate through every nth letter, starting at the 4th (index: 3) letter and ending at the 16th (index: 15):
+Iterate through every 2nd letter, starting at the 4th (index: 3) letter and ending at the 16th (index: 15):
 
     let words = "Pack my box with five dozen liquor jugs"
     for letter in words.stepBy(2, 3, 15):
