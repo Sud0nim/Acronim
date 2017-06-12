@@ -1,5 +1,5 @@
 
-import algorithm, future, strutils, unicode
+import algorithm, future, strutils, unicode, tables
 
 iterator permutations*(text: string): string =
   # Adapted from https://bitbucket.org/nimcontrib/nimcombinatorics/src/4b61d417e9ad4386caf3791f1999fd9889193e01/combinatorics.nim?at=default&fileviewer=file-view-default
@@ -72,9 +72,14 @@ proc countConstonants*(text: string): int =
   result = len(text)
   result -= countVowels(text)
 
-#TODO
-proc mostCommonLetter(text: string): char =
-  return char
+proc mostCommonLetter*(text: string): char =
+  var counts = initCountTable[char]()
+  for letter in text:
+    if counts.contains(letter):
+      inc counts[letter]
+    else:
+      counts[letter] = 1
+  result = largest(counts).key
 
 proc isPallindrome*(text: string): bool =
   if text == reversed(text):
