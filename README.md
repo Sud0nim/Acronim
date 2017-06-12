@@ -68,7 +68,7 @@ Turn a sentence in to an acronym:
     
     Output:
     
-    Sobqjmv
+    SOBQJMV
     
 Find the most frequently used letter in some text:
 
