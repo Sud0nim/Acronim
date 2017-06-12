@@ -108,3 +108,65 @@ Iterate through every 2nd letter, starting at the 4th (index: 3) letter and endi
     
     km o ih
 
+Find the highest value Scrabble word for your given letters (or use some from the Scrabble board also):
+    
+    import parsecsv, strutils
+    var parser: CsvParser
+
+    while true:
+      parser.open("words.txt") # Words is a file that contains all accepted words (essentially a dictionary)
+      parser.readHeaderRow() 
+      var
+        letters = toLowerAscii(readline(stdin))
+        bestScore = 0
+        bestWord: string
+      while parser.readRow():
+        for col in items(parser.headers):
+          var
+            dictEntry = parser.rowEntry(col)
+          if len(dictEntry) <= len(letters):
+            if dictEntry.isIn(letters):
+              var newScore = wordValue(dictEntry)
+              echo("New Word: ", dictEntry, " Score: ", newScore)
+              if newScore > bestScore:
+                bestScore = newScore
+                bestWord = dictEntry
+      echo("Best Word: ", bestWord, " Score: ", bestScore)
+      parser.close()
+   
+    Input:
+    
+    trehsya
+    
+    Output (abbreviated):
+    
+    New Word: ae Score: 2
+    New Word: aer Score: 3
+    New Word: aery Score: 7
+    New Word: aes Score: 3
+    New Word: aet Score: 3
+    New Word: ah Score: 5
+    New Word: ahey Score: 10
+    New Word: ahet Score: 7
+    New Word: ahs Score: 6
+    New Word: aht Score: 6
+    New Word: ay Score: 5
+    New Word: aye Score: 6
+    New Word: ayes Score: 7
+    ...
+    New Word: ashery Score: 12
+    ...
+    New Word: trashy Score: 12
+    New Word: trasy Score: 8
+    New Word: treas Score: 5
+    New Word: trey Score: 7
+    New Word: treys Score: 8
+    New Word: tres Score: 4
+    New Word: try Score: 6
+    New Word: trs Score: 3
+    New Word: ts Score: 2
+    New Word: tsar Score: 4
+
+    Best Word: ashery Score: 12
+    
+    
