@@ -83,6 +83,7 @@ proc isPallindrome*(text: string): bool =
     return false
 
 proc isPangram*(text: string): bool =
+  # Returns true if the text contains every letter in the English alphabet (a pangram)
   let pangram = strutils.toLower(text)
   var count = 0
   for letter in 'a'..'z':
