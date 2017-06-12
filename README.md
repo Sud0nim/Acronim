@@ -41,3 +41,22 @@ Remove vowels from some text:
     
     Mstrkrft & Sbtrkt r grt!
 
+Check if a word is a pallindrome:
+
+    let word = "racecar"
+    if word.isPallindrome:
+      echo word
+    
+    Output:
+    
+    racecar
+
+Make sure a word uses all letters in the alphabet (a pangram):
+
+    let sentence = "Sphinx of black quartz, judge my vow"
+    if sentence.isPangram:
+      echo "This one has everything from A to Z"
+      
+    Output:
+    
+    This one has everything from A to Z
