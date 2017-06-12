@@ -75,10 +75,11 @@ proc countConstonants*(text: string): int =
 proc mostCommonLetter*(text: string): char =
   var counts = initCountTable[char]()
   for letter in text:
-    if counts.contains(letter) and letter != ' ':
-      inc counts[letter]
-    else:
-      counts[letter] = 1
+    if letter in Letters:
+      if counts.contains(letter):
+        inc counts[letter]
+      else:
+        counts[letter] = 1
   result = largest(counts).key
 
 proc isPallindrome*(text: string): bool =
