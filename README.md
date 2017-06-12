@@ -114,7 +114,7 @@ Find the highest value Scrabble word for your given letters (or use some from th
     var parser: CsvParser
 
     while true:
-      parser.open("words.txt") # Words is a file that contains all accepted words (essentially a dictionary)
+      parser.open("words.txt") # Words is a file that contains all words in a dictionary
       parser.readHeaderRow() 
       var
         letters = toLowerAscii(readline(stdin))
