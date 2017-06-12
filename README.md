@@ -100,6 +100,7 @@ Iterate through every nth letter:
 
 Iterate through every nth letter, starting at the 4th (index: 3) letter and ending at the 16th (index: 15):
 
+    let words = "Pack my box with five dozen liquor jugs"
     for letter in words.stepBy(2, 3, 15):
       echo letter
       
