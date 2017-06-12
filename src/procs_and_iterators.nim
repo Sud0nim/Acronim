@@ -62,7 +62,7 @@ proc removeVowels*(text: string): string =
   result = split(text, {'a','e','i', 'o', 'u'}).join("")
 
 proc countVowels*(text: string): int =
-  # Just to make sure none of those pesky vowels snuck in to your stage name
+  # Just to make sure none of those pesky vowels sneak in to your stage name
   result = 0
   for i in text:
     if i in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']:
