@@ -25,7 +25,7 @@ Check for an anagram:
     let 
       word = "apple"
       scrambled = "eppal"
-    if isAnagram(word, scrambled):
+    if word.isAnagram(scrambled):
       echo "It's a match."
       
     Output:
