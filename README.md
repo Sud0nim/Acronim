@@ -78,3 +78,12 @@ Find the most frequently used letter in some text:
     Output:
     
     Letter 't' came up 6 times.
+
+Count the vowels and consonants in text:
+
+    let words = "All the kings men couldn't put Humpty back together again."
+    echo words.countConsonants," consonants and ", words.countVowels, " vowels."
+    
+    Output:
+    
+    43 consonants and 15 vowels.
