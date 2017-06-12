@@ -55,8 +55,20 @@ Make sure a word uses all letters in the alphabet (a pangram):
 
     let sentence = "Sphinx of black quartz, judge my vow"
     if sentence.isPangram:
-      echo "This one has everything from A to Z"
+      echo "This one has everything from A to Z."
       
     Output:
     
-    This one has everything from A to Z
+    This one has everything from A to Z.
+    
+Turn a sentence in to an acronym:
+
+    let sentence = "Sphinx of black quartz, judge my vow"
+    echo makeAcronym(sentence)
+    
+    Output:
+    
+    Sobqjmv
+    
+
+
