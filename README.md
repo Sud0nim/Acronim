@@ -8,7 +8,7 @@ These are especially useless for real-life use, but were a fun way to learn more
 Iterate through all possible combinations of the letters in a word:
 
     let text = "abc"
-    for combination in permutations text:
+    for combination in text.permutations:
       echo combination
     
     Ouput:
