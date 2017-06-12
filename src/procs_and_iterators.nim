@@ -82,9 +82,16 @@ proc isPallindrome*(text: string): bool =
   else:
     return false
 
-#TODO
-proc isPangram(text: string): bool =
-  return true
+proc isPangram*(text: string): bool =
+  let pangram = strutils.toLower(text)
+  var count = 0
+  for letter in 'a'..'z':
+      if letter in pangram:
+        inc count
+  if count == 26:
+      return true
+  else:
+      return false
 
 proc makeAcronym*(text: string): string =
   # Makes an acronym from a string containing whitespace separated words
