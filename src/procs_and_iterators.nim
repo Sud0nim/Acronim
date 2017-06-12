@@ -30,8 +30,8 @@ proc isAnagram*(word, scrambledWord: string): bool =
   # Returns true if scrabledWord is an anagram of word
   if len(scrambledWord) == len(word):
     var 
-      wordCharacters = lc[x | (x <- word), char] 
-      scrambledCharacters = lc[x | (x <- scrambledWord), char]  
+      wordCharacters = lc[toLowerAscii(x) | (x <- word), char] 
+      scrambledCharacters = lc[toLowerAscii(x) | (x <- scrambledWord), char]  
     sort(wordCharacters, system.cmp[char])
     sort(scrambledCharacters, system.cmp[char])
     if wordCharacters == scrambledCharacters:
@@ -76,10 +76,10 @@ proc mostCommonLetter*(text: string): tuple =
   var counts = initCountTable[char]()
   for letter in text:
     if letter in Letters:
-      if counts.contains(strutils.toLower(letter)):
-        inc counts[strutils.toLower(letter)]
+      if counts.contains(toLowerAscii(letter)):
+        inc counts[toLowerAscii(letter)]
       else:
-        counts[strutils.toLower(letter)] = 1
+        counts[toLowerAscii(letter)] = 1
   result = largest(counts)
 
 proc isPallindrome*(text: string): bool =
@@ -90,7 +90,7 @@ proc isPallindrome*(text: string): bool =
 
 proc isPangram*(text: string): bool =
   # Returns true if the text contains every letter in the English alphabet (a pangram)
-  let pangram = strutils.toLower(text)
+  let pangram = toLowerAscii(text)
   var count = 0
   for letter in 'a'..'z':
       if letter in pangram:
