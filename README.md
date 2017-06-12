@@ -5,7 +5,7 @@ These are especially useless for real-life use, but were a fun way to learn more
 
 # Examples
 
-Permutations iterator
+Iterate through all possible combinations of the letters in a word:
 
     let text = "abc"
     for combination in permutations text:
@@ -20,7 +20,7 @@ Permutations iterator
     cba
     cab
     
-isAnagram
+Check for an anagram:
 
     let 
       word = "apple"
@@ -31,3 +31,13 @@ isAnagram
     Output:
     
     It's a match.
+
+Remove vowels from some text:
+
+    let text = "Masterkraft & Subtrakt are great!"
+    let txt = removeVowels(text)
+    
+    Output:
+    
+    Mstrkrft & Sbtrkt r grt!
+
