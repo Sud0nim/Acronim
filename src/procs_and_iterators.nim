@@ -68,7 +68,7 @@ proc countVowels*(text: string): int =
     if i in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']:
       inc result
 
-proc countConstonants*(text: string): int =
+proc countConsonants*(text: string): int =
   result = len(text)
   result -= countVowels(text)
 
