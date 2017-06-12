@@ -87,3 +87,23 @@ Count the vowels and consonants in text:
     Output:
     
     43 consonants and 15 vowels.
+
+Iterate through every nth letter:
+
+    let words = "Pack my box with five dozen liquor jugs"
+    for letter in words.stepBy(2):
+      echo letter
+      
+    Output:
+    
+    Pc ybxwt iedznlqo us
+
+Iterate through every nth letter, starting at the 4th (index: 3) letter and ending at the 16th (index: 15):
+
+    for letter in words.stepBy(2, 3, 15):
+      echo letter
+      
+    Output:
+    
+    km o ih
+
