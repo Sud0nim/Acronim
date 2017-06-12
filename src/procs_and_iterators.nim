@@ -108,6 +108,60 @@ proc makeAcronym*(text: string): string =
     result &= word[0]
   result = result.toUpperAscii
 
+# Scrabble Solver Procs:
+
+proc letterValue*(letter: char): int =
+  # Returns the value of the given letter according the official Scrabble rules
+  let character = toLowerAscii(letter)
+  case character:
+  of 'q', 'z':
+    return 10
+  of 'j', 'x':
+    return 8
+  of 'k':
+    return 5
+  of 'f', 'h', 'v', 'w', 'y':
+    return 4
+  of 'b', 'c', 'm', 'p':
+    return 3
+  of 'd', 'g':
+    return 2
+  else:
+    return 1
+
+proc wordValue*(word: string): int =
+  # Returns the Scrabble value of a given word
+  result = 0
+  for i in word:
+    result += letterValue(i)
+ 
+proc isIn*(word, letters: string): bool =
+  # Returns true if 'word' can be made out of 'letters' using each letter only once
+  var 
+    wordLetters = toLowerAscii(word)
+    scrambledLetters = toLowerAscii(letters)
+    wordLetterCounts = initCountTable[char]()
+    scrambledLetterCounts = initCountTable[char]()
+    letterCount = 0
+  for i in wordLetters:
+    if wordLetterCounts.contains(i):
+      inc wordLetterCounts[i]
+    else:
+      wordLetterCounts[i] = 1
+  for j in scrambledLetters:
+    if scrambledLetterCounts.contains(j):
+      inc scrambledLetterCounts[j]
+    else:
+      scrambledLetterCounts[j] = 1
+  for k, v in wordLetterCounts:
+    if scrambledLetterCounts.contains(k) and scrambledLetterCounts[k] >= wordLetterCounts[k]:
+      inc letterCount
+  if letterCount == len(wordLetterCounts):
+    return true
+  else:
+    return false
+
+
 
 # Credit for permutations iterator:
 
