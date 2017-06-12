@@ -138,7 +138,7 @@ Find the highest value Scrabble word for your given letters (or use some from th
     
     trehsya
     
-    Output (abbreviated):
+    Output (abbreviated): # Note: A dictionary was used here rather than a list of Scrabble words
     
     New Word: ae Score: 2
     New Word: aer Score: 3
