@@ -59,7 +59,7 @@ iterator stepBy*(text: string; stepSize: int, startPoint: int = 0, endPoint: int
 
 proc removeVowels*(text: string): string =
   # In case you are a musician like MGMT or SBTRKT and really hate vowels...
-  result = split(text, {'a','e','i', 'o', 'u'}).join("")
+  result = split(toLowerAscii(text), {'a','e','i', 'o', 'u'}).join("")
 
 proc countVowels*(text: string): int =
   # Just to make sure none of those pesky vowels sneak in to your stage name
@@ -83,7 +83,7 @@ proc mostCommonLetter*(text: string): tuple =
   result = largest(counts)
 
 proc isPallindrome*(text: string): bool =
-  if text == reversed(text):
+  if toLowerAscii(text) == toLowerAscii(reversed(text)):
     return true
   else:
     return false
@@ -106,6 +106,7 @@ proc makeAcronym*(text: string): string =
   result = ""
   for word in words:
     result &= word[0]
+  result = result.toUpperAscii
 
 
 # Credit for permutations iterator:
