@@ -70,5 +70,11 @@ Turn a sentence in to an acronym:
     
     Sobqjmv
     
+Find the most frequently used letter in some text:
 
-
+    let words = "All the kings men couldn't put Humpty back together again."
+    echo "Letter '", words.mostCommonLetter.key,"' came up ", words.mostCommonLetter.val, " times."
+    
+    Output:
+    
+    Letter 't' came up 6 times.
