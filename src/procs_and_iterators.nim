@@ -72,7 +72,7 @@ proc countConstonants*(text: string): int =
   result = len(text)
   result -= countVowels(text)
 
-proc mostCommonLetter*(text: string): char =
+proc mostCommonLetter*(text: string): tuple =
   var counts = initCountTable[char]()
   for letter in text:
     if letter in Letters:
@@ -80,7 +80,7 @@ proc mostCommonLetter*(text: string): char =
         inc counts[strutils.toLower(letter)]
       else:
         counts[strutils.toLower(letter)] = 1
-  result = largest(counts).key
+  result = largest(counts)
 
 proc isPallindrome*(text: string): bool =
   if text == reversed(text):
