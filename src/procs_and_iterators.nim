@@ -76,10 +76,10 @@ proc mostCommonLetter*(text: string): char =
   var counts = initCountTable[char]()
   for letter in text:
     if letter in Letters:
-      if counts.contains(letter):
-        inc counts[letter]
+      if counts.contains(strutils.toLower(letter)):
+        inc counts[strutils.toLower(letter)]
       else:
-        counts[letter] = 1
+        counts[strutils.toLower(letter)] = 1
   result = largest(counts).key
 
 proc isPallindrome*(text: string): bool =
