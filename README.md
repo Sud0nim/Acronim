@@ -169,4 +169,14 @@ Find the highest value Scrabble word for your given letters (or use some from th
 
     Best Word: ashery Score: 12
     
+Shorten a sentence if a chain of words can share common letters:
+
+    echo recombobulate("Digital alarm clocks scare area children.")
+    echo recombobulate("Deep episodes of Deep Space Nine came on the television only after the news.")
     
+    Output:
+    
+    Digitalarm clockscarea children.
+    Deepisodes of Deep Space Nine came on the televisionly after the news.
+    
+
