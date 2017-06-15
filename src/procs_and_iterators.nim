@@ -164,7 +164,7 @@ proc isIn*(word, letters: string): bool =
 # Procs used in challenge 319 of r/DailyProgrammer:
 
 proc joinable*(a,b: string): string =
-  # Checks if two strings can be merged in to one on common ending-to-starting letters
+  # Checks if two strings can be merged on common letters at the end of 'a' and start of 'b'
   for i in 0..a.high:
     for j in countdown(b.high, 0):
       if a[i..a.high] == b[0..j]:
