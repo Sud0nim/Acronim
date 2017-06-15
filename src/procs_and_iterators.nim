@@ -161,7 +161,26 @@ proc isIn*(word, letters: string): bool =
   else:
     return false
 
+# Procs used in challenge 319 of r/DailyProgrammer:
 
+proc joinable*(a,b: string): string =
+  # Checks if two strings can be merged in to one on common ending-to-starting letters
+  for i in 0..a.high:
+    for j in countdown(b.high, 0):
+      if a[i..a.high] == b[0..j]:
+        result = b[j + 1..b.high]
+
+
+proc recombobulate*(input: string): string =
+  # Takes a sentence string and returns a condensed version where any 'joinable' words are merged together
+  var sentence = input.split()
+  for n in 0..sentence.high:
+    if n == 0:
+      result = sentence[n]
+    elif result.joinable(sentence[n]) != nil:
+      result &= result.joinable(sentence[n])
+    else:
+      result &= " " & sentence[n]
 
 # Credit for permutations iterator:
 
