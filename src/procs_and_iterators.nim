@@ -186,7 +186,7 @@ proc printWordScores*(filename: string) =
 
 # Procs used in challenge 319 of r/DailyProgrammer:
 
-proc joinable*(a,b: string): string =
+proc joinableTo*(a,b: string): string =
   # Checks if two strings can be merged on common letters at the end of 'a' and start of 'b'
   for i in 0..a.high:
     for j in countdown(b.high, 0):
@@ -200,8 +200,8 @@ proc recombobulate*(input: string): string =
   for n in 0..sentence.high:
     if n == 0:
       result = sentence[n]
-    elif result.joinable(sentence[n]) != nil:
-      result &= result.joinable(sentence[n])
+    elif result.joinableTo(sentence[n]) != nil:
+      result &= result.joinableTo(sentence[n])
     else:
       result &= " " & sentence[n]
 
