@@ -1,5 +1,5 @@
 
-import algorithm, future, strutils, unicode, tables
+import algorithm, future, strutils, unicode, tables, parsecsv
 
 iterator permutations*(text: string): string =
   # Adapted from https://bitbucket.org/nimcontrib/nimcombinatorics/src/4b61d417e9ad4386caf3791f1999fd9889193e01/combinatorics.nim?at=default&fileviewer=file-view-default
