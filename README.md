@@ -160,4 +160,19 @@ Shorten a sentence if a chain of words can share common letters:
     Digitalarm clockscarea children.
     Deepisodes of Deep Space Nine came on the televisionly after the news.
     
+Take text from a file and transpose it in the console:
 
+    transposeText("sample.txt")
+    
+    Input (sample.txt):
+    
+    Some
+    text.
+    
+    Output:
+    
+    St
+    oe
+    mx
+    et
+     .
