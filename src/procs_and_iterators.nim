@@ -162,6 +162,7 @@ proc isIn*(word, letters: string): bool =
     return false
 
 proc printWordScores*(filename: string) =
+  # Returns the possible word scores and combinations from user provided letters
   var
     parser: CsvParser
     letters = toLowerAscii(readline(stdin))
