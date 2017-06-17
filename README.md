@@ -111,28 +111,9 @@ Iterate through every 2nd letter, starting at the 4th (index: 3) letter and endi
 Find the highest value Scrabble word for your given letters (or use some from the Scrabble board also):
     
     import parsecsv, strutils
-    var parser: CsvParser
 
     while true:
-      parser.open("words.txt") # Words is a file that contains all words in a dictionary
-      parser.readHeaderRow() 
-      var
-        letters = toLowerAscii(readline(stdin))
-        bestScore = 0
-        bestWord: string
-      while parser.readRow():
-        for col in items(parser.headers):
-          var
-            dictEntry = parser.rowEntry(col)
-          if len(dictEntry) <= len(letters):
-            if dictEntry.isIn(letters):
-              var newScore = wordValue(dictEntry)
-              echo("New Word: ", dictEntry, " Score: ", newScore)
-              if newScore > bestScore:
-                bestScore = newScore
-                bestWord = dictEntry
-      echo("Best Word: ", bestWord, " Score: ", bestScore)
-      parser.close()
+      printWordScores("words.txt") # Enter some scrabble letters to the console to find the possible word combinations and scores
    
     Input:
     
