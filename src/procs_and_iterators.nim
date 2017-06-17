@@ -161,6 +161,28 @@ proc isIn*(word, letters: string): bool =
   else:
     return false
 
+proc printWordScores*(filename: string) =
+  var
+    parser: CsvParser
+    letters = toLowerAscii(readline(stdin))
+    bestScore = 0
+    bestWord: string
+  parser.open(filename)
+  parser.readHeaderRow() 
+  while parser.readRow():
+    for col in items(parser.headers):
+      var
+        dictEntry = parser.rowEntry(col)
+      if len(dictEntry) <= len(letters):
+        if dictEntry.isIn(letters):
+          var newScore = wordValue(dictEntry)
+          echo("New Word: ", dictEntry, " Score: ", newScore)
+          if newScore > bestScore:
+            bestScore = newScore
+            bestWord = dictEntry
+  echo("Best Word: ", bestWord, " Score: ", bestScore)
+  parser.close()
+
 # Procs used in challenge 319 of r/DailyProgrammer:
 
 proc joinable*(a,b: string): string =
